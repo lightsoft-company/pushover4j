@@ -28,6 +28,10 @@ public class PushoverMessage {
 
     private String sound;
 
+    private Integer retry;
+
+    private Integer expire;
+
     private PushoverMessage() {
         // use the builder
     }
@@ -133,6 +137,22 @@ public class PushoverMessage {
             msg.sound = sound;
             return this;
         }
+
+        /**
+         * (optional) - The expire parameter specifies how many seconds your notification will continue to be retried for (every retry seconds).
+         */
+        public Builder setExpire(Integer expire) {
+            msg.expire = expire;
+            return this;
+        }
+
+        /**
+         * (optional) - The retry parameter specifies how often (in seconds) the Pushover servers will send the same notification to the user
+         */
+        public Builder setRetry(Integer retry) {
+            msg.retry = retry;
+            return this;
+        }
     }
 
     public String getApiToken() {
@@ -175,4 +195,11 @@ public class PushoverMessage {
         return sound;
     }
 
+    public Integer getRetry() {
+        return retry;
+    }
+
+    public Integer getExpire() {
+        return expire;
+    }
 }

@@ -53,6 +53,8 @@ public class PushoverRestClient implements PushoverClient {
         addPairIfNotNull(nvps, "device", msg.getDevice());
         addPairIfNotNull(nvps, "timestamp", msg.getTimestamp());
         addPairIfNotNull(nvps, "sound", msg.getSound());
+        addPairIfNotNull(nvps, "expire", msg.getExpire());
+        addPairIfNotNull(nvps, "retry", msg.getRetry());
 
         if (!MessagePriority.NORMAL.equals(msg.getPriority())) {
             addPairIfNotNull(nvps, "priority", msg.getPriority());
